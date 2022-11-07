@@ -1,0 +1,274 @@
+{
+    "sourceFile": "ham.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 64,
+            "patches": [
+                {
+                    "date": 1638535059521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1638535077334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,8 @@\n ?>\r\n \r\n <?php\r\n     function TinNoiBat(){\r\n-    try{\r\n         $sql = \"SELECT TieuDe, SoLanXem FROM tin WHERE AnHien=1 ORDER BY SoLanXem DESC LIMIT 0,10\";\r\n         $kq = $conn->query($sql);\r\n     }\r\n-    catch(Exception $e){\r\n-        die(\"Lỗi Thực Thi sql: \" . $e->getMessage());\r\n-    }\r\n-}\r\n ?>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638535094397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     }  \r\n ?>\r\n \r\n <?php\r\n-    function TinNoiBat(){\r\n+    function TinXemBat(){\r\n         $sql = \"SELECT TieuDe, SoLanXem FROM tin WHERE AnHien=1 ORDER BY SoLanXem DESC LIMIT 0,10\";\r\n         $kq = $conn->query($sql);\r\n     }\r\n ?>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638535105056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,7 @@\n <?php\r\n     function TinXemBat(){\r\n         $sql = \"SELECT TieuDe, SoLanXem FROM tin WHERE AnHien=1 ORDER BY SoLanXem DESC LIMIT 0,10\";\r\n         $kq = $conn->query($sql);\r\n+        return $kq;\r\n     }\r\n ?>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638535149307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,4 @@\n         die(\"Lỗi : \". $e->getMessage());\r\n     }  \r\n ?>\r\n \r\n-<?php\r\n-    function TinXemBat(){\r\n-        $sql = \"SELECT TieuDe, SoLanXem FROM tin WHERE AnHien=1 ORDER BY SoLanXem DESC LIMIT 0,10\";\r\n-        $kq = $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-?>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1638535184018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n         $conn = new PDO(\"mysql:host=$host;dbname=$dbname; charset=utf8\",$username,$password);\r\n         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\r\n         }\r\n     catch (PDOException $e){\r\n-        die(\"Lỗi : \". $e->getMessage());\r\n+        die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n ?>\r\n \r\n"
+                },
+                {
+                    "date": 1638535382277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,11 @@\n         }\r\n     catch (PDOException $e){\r\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n+\r\n+    function TinNoiBat(){\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE lang='vi' Ngay DESC LIMIT 0,8\";\r\n+    }\r\n ?>\r\n \r\n+\r\n"
+                },
+                {
+                    "date": 1638535433475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     }  \r\n \r\n     function TinNoiBat(){\r\n         $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE lang='vi' Ngay DESC LIMIT 0,8\";\r\n+        $kq = $conn->query($sql);\r\n     }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638535455018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n \r\n     function TinNoiBat(){\r\n         $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE lang='vi' Ngay DESC LIMIT 0,8\";\r\n         $kq = $conn->query($sql);\r\n+        return $kq;\r\n     }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638535571474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     }  \r\n \r\n     function TinNoiBat(){\r\n         $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE lang='vi' Ngay DESC LIMIT 0,8\";\r\n+        global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n ?>\r\n"
+                },
+                {
+                    "date": 1638535624453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE lang='vi' Ngay DESC LIMIT 0,8\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE lang='vi' Ngay DESC LIMIT 0,12\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638535655602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE lang='vi' Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' Ngay DESC LIMIT 0,12\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638535675946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' Ngay DESC LIMIT 0,5\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638535718840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,10 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+    function TinXemNhieu(){\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE AnHien=1 lang='vi' Ngay DESC LIMIT 0,5\";\r\n+    }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638535792676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' Ngay DESC LIMIT 0,5\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' ORDER BY Ngay DESC LIMIT 0,5\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638535822116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinXemNhieu(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE AnHien=1 lang='vi' Ngay DESC LIMIT 0,5\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE AnHien=1 lang='vi' ORDER BY SoXemNhieu DESC LIMIT 0,5\";\r\n     }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638535856826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,11 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinXemNhieu(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE AnHien=1 lang='vi' ORDER BY SoXemNhieu DESC LIMIT 0,5\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE AnHien=1 lang='vi' ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n+        global $conn;\r\n+        return $kq;\r\n     }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638535892043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinXemNhieu(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE AnHien=1 lang='vi' ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' END AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n         global $conn;\r\n         return $kq;\r\n     }\r\n ?>\r\n"
+                },
+                {
+                    "date": 1638535954689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,28 @@\n+<?php \r\n+    try{\r\n+        $host = \"localhost\";\r\n+        $dbname = \"php1_news\";\r\n+        $username = \"root\";\r\n+        $password =\"\";\r\n+        $conn = new PDO(\"mysql:host=$host;dbname=$dbname; charset=utf8\",$username,$password);\r\n+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\r\n+        }\r\n+    catch (PDOException $e){\r\n+        die(\"Lỗi : \" . $e->getMessage());\r\n+    }  \r\n+\r\n+    function TinNoiBat(){\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' ORDER BY Ngay DESC LIMIT 0,5\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+    function TinXemNhieu(){\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' END AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n+        global $conn;\r\n+        $kq= $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+?>\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1638535960576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,31 +25,4 @@\n     }\r\n ?>\r\n \r\n \r\n-<?php \r\n-    try{\r\n-        $host = \"localhost\";\r\n-        $dbname = \"php1_news\";\r\n-        $username = \"root\";\r\n-        $password =\"\";\r\n-        $conn = new PDO(\"mysql:host=$host;dbname=$dbname; charset=utf8\",$username,$password);\r\n-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\r\n-        }\r\n-    catch (PDOException $e){\r\n-        die(\"Lỗi : \" . $e->getMessage());\r\n-    }  \r\n-\r\n-    function TinNoiBat(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' ORDER BY Ngay DESC LIMIT 0,5\";\r\n-        global $conn;\r\n-        $kq = $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-    function TinXemNhieu(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' END AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n-        global $conn;\r\n-        return $kq;\r\n-    }\r\n-?>\r\n-\r\n-\r\n"
+                },
+                {
+                    "date": 1638536019041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,11 @@\n         global $conn;\r\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+    function TinMoiNhat(){\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        $kq = $conn->query($sql);\r\n+    }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638536037376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,11 @@\n         return $kq;\r\n     }\r\n     function TinMoiNhat(){\r\n         $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        global $conn;\r\n         $kq = $conn->query($sql);\r\n+        return $kq;\r\n     }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638536208191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,7 +28,13 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+    function TheLoai(){\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638536213696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT idLoai, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638536264614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idLoai, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638536281046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' END AnHien=1 ORDER BY Ngay DESC LIMIT 0,12\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638536308883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' END AnHien=1 ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY Ngay DESC LIMIT 0,12\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638536323398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu DESC LIMIT 0,12\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638536344969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638536370351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinXemNhieu(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' END AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' AND AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n         global $conn;\r\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638536382209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 lang='vi' ORDER BY Ngay DESC LIMIT 0,5\";\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 AND lang='vi' ORDER BY Ngay DESC LIMIT 0,5\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638538602906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,7 +34,13 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+    function LoaiTinTrongTheLoai(){\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638538659460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function LoaiTinTrongTheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n+        $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638538667277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function LoaiTinTrongTheLoai(){\r\n+    function LoaiTinTrongTheLoai($idTL){\r\n         $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n"
+                },
+                {
+                    "date": 1638539271551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 AND lang='vi' ORDER BY Ngay DESC LIMIT 0,5\";\r\n+        $sql = \"SELECT idTin, TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638539852491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT idTin, TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE TinNoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n+        $sql = \"SELECT idTin, TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE NoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638542867504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinMoiNhat(){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,12\";\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,8\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638542881197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinMoiNhat(){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' ORDER BY Ngay DESC LIMIT 0,8\";\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,8\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638542912214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         global $conn;\r\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function TinMoiNhat(){\r\n+    function TinMoiNhat($soTin){\r\n         $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,8\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n"
+                },
+                {
+                    "date": 1638542922313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinMoiNhat($soTin){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,8\";\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638542969659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         global $conn;\r\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function TinMoiNhat($soTin){\r\n+    function TinMoiNhat($soTin=8){\r\n         $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n"
+                },
+                {
+                    "date": 1638544108808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinMoiNhat($soTin=8){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638545859069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,7 +40,14 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+    function TinTrongLoai($idTL){\r\n+        $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+    \r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638545897310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinTrongLoai($idTL){\r\n-        $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n+        $sql = \"SELECT idTL, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638545925712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,10 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function TinTrongLoai($idTL){\r\n-        $sql = \"SELECT idTL, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n+    function TinTrongLoai($idLT){\r\n+        $sql = \"SELECT idTL, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638546083532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinTrongLoai($idLT){\r\n-        $sql = \"SELECT idTL, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY ThuTu ASC\";\r\n+        $sql = \"SELECT idTL, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY Ngay ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638546096930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinTrongLoai($idLT){\r\n-        $sql = \"SELECT idTL, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY Ngay ASC\";\r\n+        $sql = \"SELECT idTin, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY Ngay ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638546144874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,14 +40,15 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function TinTrongLoai($idLT){\r\n-        $sql = \"SELECT idTin, TieuDe,TomTat,Ngay,SoLanXem FROM loaitin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY Ngay ASC\";\r\n+    function TinTrongLoai($soTin=8){\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+  \r\n     \r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638546224280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,15 +40,13 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function TinTrongLoai($soTin=8){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n+    function TinTrongLoai($idLT){\r\n+        $sql = \"SELECT idTin, TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC \";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-  \r\n-    \r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638546262476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638546279442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY ThuTu ASC\";\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n@@ -46,7 +46,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+  \r\n+    \r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638546301125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,52 @@\n+<?php \r\n+    try{\r\n+        $host = \"localhost\";\r\n+        $dbname = \"php1_news\";\r\n+        $username = \"root\";\r\n+        $password =\"\";\r\n+        $conn = new PDO(\"mysql:host=$host;dbname=$dbname; charset=utf8\",$username,$password);\r\n+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\r\n+        }\r\n+    catch (PDOException $e){\r\n+        die(\"Lỗi : \" . $e->getMessage());\r\n+    }  \r\n+\r\n+    function TinNoiBat(){\r\n+        $sql = \"SELECT idTin, TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE NoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+    function TinXemNhieu(){\r\n+        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' AND AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n+        global $conn;\r\n+        $kq= $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+    function TinMoiNhat($soTin=8){\r\n+        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+    function TheLoai(){\r\n+        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+    function LoaiTinTrongTheLoai($idTL){\r\n+        $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+    function TinTrongLoai($idLT){\r\n+        $sql = \"SELECT idTin, TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY Ngay DESC \";\r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+?>\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1638546335304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,58 +49,4 @@\n     }\r\n ?>\r\n \r\n \r\n-<?php \r\n-    try{\r\n-        $host = \"localhost\";\r\n-        $dbname = \"php1_news\";\r\n-        $username = \"root\";\r\n-        $password =\"\";\r\n-        $conn = new PDO(\"mysql:host=$host;dbname=$dbname; charset=utf8\",$username,$password);\r\n-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\r\n-        }\r\n-    catch (PDOException $e){\r\n-        die(\"Lỗi : \" . $e->getMessage());\r\n-    }  \r\n-\r\n-    function TinNoiBat(){\r\n-        $sql = \"SELECT idTin, TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE NoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n-        global $conn;\r\n-        $kq = $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-    function TinXemNhieu(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' AND AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n-        global $conn;\r\n-        $kq= $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-    function TinMoiNhat($soTin=8){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n-        global $conn;\r\n-        $kq = $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-    function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n-        global $conn;\r\n-        $kq = $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-    function LoaiTinTrongTheLoai($idTL){\r\n-        $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n-        global $conn;\r\n-        $kq = $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-    function TinTrongLoai($idLT){\r\n-        $sql = \"SELECT idTin, TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC \";\r\n-        global $conn;\r\n-        $kq = $conn->query($sql);\r\n-        return $kq;\r\n-    }\r\n-  \r\n-    \r\n-?>\r\n-\r\n-\r\n"
+                },
+                {
+                    "date": 1638552700945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,35 +15,35 @@\n         $sql = \"SELECT idTin, TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE NoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n-    }\r\n+    };\r\n     function TinXemNhieu(){\r\n         $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' AND AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n         global $conn;\r\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n-    }\r\n+    };\r\n     function TinMoiNhat($soTin=8){\r\n         $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n-    }\r\n+    };\r\n     function TheLoai(){\r\n         $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n-    }\r\n+    };\r\n     function LoaiTinTrongTheLoai($idTL){\r\n         $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n-    }\r\n+    };\r\n     function TinTrongLoai($idLT){\r\n-        $sql = \"SELECT idTin, TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY Ngay DESC \";\r\n+        $sql = \"SELECT * FROM tin WHERE lang='vi' AND AnHien=1 AND idLT=$idLT ORDER BY Ngay DESC \"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638554003384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,33 +11,33 @@\n         die(\"Lỗi : \" . $e->getMessage());\r\n     }  \r\n \r\n     function TinNoiBat(){\r\n-        $sql = \"SELECT idTin, TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE NoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n+        $sql = \"SELECT * FROM tin WHERE NoiBat=1 AND lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,5\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     };\r\n     function TinXemNhieu(){\r\n-        $sql = \"SELECT TieuDe, TomTat, Ngay, urlHinh FROM tin WHERE  lang='vi' AND AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n+        $sql = \"SELECT * FROM tin WHERE  lang='vi' AND AnHien=1 ORDER BY SoXemNhieu DESC LIMIT 0,6\";\r\n         global $conn;\r\n         $kq= $conn->query($sql);\r\n         return $kq;\r\n     };\r\n     function TinMoiNhat($soTin=8){\r\n-        $sql = \"SELECT TieuDe, TomTat,Ngay,urlHinh,SoLanXem FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n+        $sql = \"SELECT * FROM tin WHERE lang='vi' AND AnHien=1 ORDER BY Ngay DESC LIMIT 0,$soTin\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     };\r\n     function TheLoai(){\r\n-        $sql = \"SELECT idTL, TenTL FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n+        $sql = \"SELECT * FROM theloai WHERE lang='vi' AND AnHien=1 AND HienMenu=1 ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     };\r\n     function LoaiTinTrongTheLoai($idTL){\r\n-        $sql = \"SELECT idTL, Ten FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n+        $sql = \"SELECT * FROM loaitin WHERE lang='vi' AND AnHien=1 AND idTL=$idTL ORDER BY ThuTu ASC\";\r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     };\r\n"
+                },
+                {
+                    "date": 1638554499603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,7 +46,14 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n+    function TinTrongLoai($idLT){\r\n+        $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT \"; \r\n+        global $conn;\r\n+        $kq = $conn->query($sql);\r\n+        return $kq;\r\n+    }\r\n+\r\n ?>\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1638554506914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n     function TinTrongLoai($idLT){\r\n-        $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT \"; \r\n+        $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n"
+                },
+                {
+                    "date": 1638554595088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,10 @@\n     function TinTrongLoai($idLT){\r\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n-        return $kq;\r\n+        $row = $kq->fetch();\r\n+        return row['Ten'];\r\n     }\r\n \r\n ?>\r\n \r\n"
+                },
+                {
+                    "date": 1638554614318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function TinTrongLoai($idLT){\r\n+    function layTenLoaiTini($idLT){\r\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         $row = $kq->fetch();\r\n"
+                },
+                {
+                    "date": 1638554619418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function layTenLoaiTini($idLT){\r\n+    function layTenLoaiTin($idLT){\r\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         $row = $kq->fetch();\r\n"
+                },
+                {
+                    "date": 1638554626917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         $row = $kq->fetch();\r\n-        return row['Ten'];\r\n+        return $row['Ten'];\r\n     }\r\n \r\n ?>\r\n \r\n"
+                },
+                {
+                    "date": 1638554633850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function layTenLoaiTin($idLT){\r\n+    function LayTenLoaiTin($idLT){\r\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         $row = $kq->fetch();\r\n"
+                },
+                {
+                    "date": 1638554698116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function LayTenLoaiTin($idLT){\r\n+    function layTenLoaiTin($idLT){\r\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         $row = $kq->fetch();\r\n"
+                },
+                {
+                    "date": 1638555260725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function layTenLoaiTin($idLT){\r\n+    function layTenLoaiTin($idLT=4){\r\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         $row = $kq->fetch();\r\n"
+                },
+                {
+                    "date": 1638555280972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         return $kq;\r\n     }\r\n-    function layTenLoaiTin($idLT=4){\r\n+    function layTenLoaiTin($idLT){\r\n         $sql = \"SELECT Ten FROM loaitin WHERE idLT=$idLT\"; \r\n         global $conn;\r\n         $kq = $conn->query($sql);\r\n         $row = $kq->fetch();\r\n"
+                }
+            ],
+            "date": 1638535059521,
+            "name": "Commit-0",
+            "content": "<?php \r\n    try{\r\n        $host = \"localhost\";\r\n        $dbname = \"php1_news\";\r\n        $username = \"root\";\r\n        $password =\"\";\r\n        $conn = new PDO(\"mysql:host=$host;dbname=$dbname; charset=utf8\",$username,$password);\r\n        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\r\n        }\r\n    catch (PDOException $e){\r\n        die(\"Lỗi : \". $e->getMessage());\r\n    }  \r\n?>\r\n\r\n<?php\r\n    function TinNoiBat(){\r\n    try{\r\n        $sql = \"SELECT TieuDe, SoLanXem FROM tin WHERE AnHien=1 ORDER BY SoLanXem DESC LIMIT 0,10\";\r\n        $kq = $conn->query($sql);\r\n    }\r\n    catch(Exception $e){\r\n        die(\"Lỗi Thực Thi sql: \" . $e->getMessage());\r\n    }\r\n}\r\n?>"
+        }
+    ]
+}

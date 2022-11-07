@@ -1,0 +1,18 @@
+{
+    "sourceFile": "ASM_02_PHP1/footer.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1653666146870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1653666146870,
+            "name": "Commit-0",
+            "content": "<footer class=\"footer footer--dark\">\r\n    <div class=\"container\">\r\n        <div class=\"footer__widgets\">\r\n            <div class=\"row\">\r\n\r\n                <div class=\"col-lg-5 col-md-12\">\r\n                    <div class=\"widget\">\r\n                        <a href=\"index.php\">\r\n                            <img src=\"img/blog/logotintuc.png\" width=\"200\" height=\"60\">\r\n                        </a>\r\n                        <p class=\"mt-20\">Cơ quan chủ quản: Công ty Cổ phần Quảng cáo Trực tuyến 24H. <br> Xóm Tây Tiên Lục - Lạng Giang - Bắc Giang</p>\r\n                    </div>\r\n                </div>\r\n\r\n              \r\n                <div class=\"col-lg-4 col-md-6\">\r\n                    <div class=\"widget widget__newsletter\">\r\n                        <h4 class=\"widget-title\">Follow us</h4>\r\n\r\n                        <div class=\"socials mb-20\">\r\n                            <a href=\"#\" class=\"social social-facebook\" aria-label=\"facebook\"><i\r\n                                    class=\"ui-facebook\"></i></a>\r\n                            <a href=\"#\" class=\"social social-twitter\" aria-label=\"twitter\"><i\r\n                                    class=\"ui-twitter\"></i></a>\r\n                            <a href=\"#\" class=\"social social-google-plus\" aria-label=\"google+\"><i\r\n                                    class=\"ui-google\"></i></a>\r\n                            <a href=\"#\" class=\"social social-youtube\" aria-label=\"youtube\"><i\r\n                                    class=\"ui-youtube\"></i></a>\r\n                            <a href=\"#\" class=\"social social-instagram\" aria-label=\"instagram\"><i\r\n                                    class=\"ui-instagram\"></i></a>\r\n                        </div>\r\n\r\n                        <form class=\"mc4wp-form\" method=\"post\">\r\n                            <div class=\"mc4wp-form-fields\">\r\n                                <p>\r\n                                    <input type=\"email\" name=\"EMAIL\" placeholder=\"Your email\" required=\"\">\r\n                                </p>\r\n                                <p>\r\n                                    <input type=\"submit\" class=\"btn btn-lg btn-color\" value=\"Subscribe\">\r\n                                </p>\r\n                            </div>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</footer>"
+        }
+    ]
+}
